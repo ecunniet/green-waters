@@ -1,7 +1,7 @@
 import React from "react";
-import "./Map.scss";
+import "./Landing.scss";
 
-export default function Map() {
+export default function Landing() {
   return (
       <p>Hello tout le monde !</p>
   );
