@@ -1,12 +1,16 @@
 import './App.scss';
-import Results from "./components/Results/Results";
+import ExternalStateExample from "./components/ExternalStateExample/ExternalStateExample";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Location from './components/Location/Location';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
       </header>
-      <Results></Results>
+      <ExternalStateExample></ExternalStateExample>
+      <Location></Location>
+      <Sidebar></Sidebar>
     </div>
   );
 }
