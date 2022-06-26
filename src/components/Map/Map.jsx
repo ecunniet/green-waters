@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { MapContainer} from "react-leaflet";
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer";
 import "./Map.scss";
 import 'leaflet/dist/leaflet.css';
 
+const center = [51.505, -0.09]
+const zoom = 13
 
-export default function Map() {
+export default function Map({ setMap }) {
 
-  return (
-    <div> 
+  const displayMap = useMemo(
+    () => (
       <MapContainer
         style={{ height: "50vh", width: "100%" }}
-        zoom={6}
-        center={[48.8773406,2.3299627]}
-      >
+        center={center}
+        zoom={zoom}
+        scrollWheelZoom={true}
+        ref={setMap}>
         <ReactLeafletGoogleLayer type={'satellite'} />
       </MapContainer>
-      <p>Hello</p>
+    ),
+    [setMap],
+  )
+
+  return (
+    <div>
+      {displayMap}
     </div>
-  );
+  )
 }
+

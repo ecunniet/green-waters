@@ -1,15 +1,18 @@
-import './App.scss';
-import ExternalStateExample from "./components/ExternalStateExample/ExternalStateExample";
+import React, { useState } from "react";
+import Map from "./components/Map/Map";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Location from './components/Location/Location';
+import DisplayLatLong from './components/DisplayLatLong/DisplayLatLong';
+import './App.scss';
 
 function App() {
+  const [map, setMap] = useState(null)
+
   return (
     <div className="App">
       <header className="App-header">
       </header>
-      <ExternalStateExample></ExternalStateExample>
-      <Location></Location>
+      <Map setMap={setMap}></Map>
+      {map ? <DisplayLatLong map={map} /> : null}
       <Sidebar></Sidebar>
     </div>
   );
