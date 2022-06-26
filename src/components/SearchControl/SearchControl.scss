@@ -10,3 +10,6 @@
     height: 12px !important;
     width: 12px !important;
 }
+.leaflet-geosearch-button.active .leaflet-bar-part {
+    border-radius: 4px 0 0 4px !important;
+}

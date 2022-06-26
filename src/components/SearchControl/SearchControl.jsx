@@ -5,17 +5,17 @@ import 'leaflet-geosearch/dist/geosearch.css';
 import './SearchControl.scss'
 
 const SearchControl = (props) => {
-    const map = useMap();
-  
+    const map2 = useMap();
+
     useEffect(() => {
       const searchControl = new GeoSearchControl({
         provider: props.provider,
         ...props
       });
   
-      map.addControl(searchControl);
-      return () => map.removeControl(searchControl);
-    }, [props]);
+      map2.addControl(searchControl);
+      return () => map2.removeControl(searchControl);
+    }, [map2, props]);
   
     return null;
   };

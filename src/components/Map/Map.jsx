@@ -11,7 +11,7 @@ const zoom = 13
 
 const provider = new GoogleProvider({
   params: {
-    key: '__YOUR_GOOGLE_KEY__',
+    key: process.env.REACT_APP_GOOGLE_API_KEY,
   },
 });
 
@@ -28,7 +28,9 @@ export default function Map({ setMap }) {
         <ReactLeafletGoogleLayer type={'satellite'} />
         <SearchControl
           provider={provider}
-          autoClose={false}
+          showMarker={false}
+          animateZoom={true}
+          autoClose={true}
           searchLabel={"Enter address, please"}
         />
       </MapContainer>
