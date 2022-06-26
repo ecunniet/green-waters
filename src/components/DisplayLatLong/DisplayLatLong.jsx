@@ -16,8 +16,8 @@ export default function DisplayLatLong({ map }) {
     }, [map, onMove])
   
     return (
-      <div className="location--container">
-        <p>
+      <div className="displaylatlong--container">
+        <p className="displaylatlong">
           latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
         </p>
       </div>

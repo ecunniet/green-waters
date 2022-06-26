@@ -12,7 +12,7 @@ export default function Map({ setMap }) {
   const displayMap = useMemo(
     () => (
       <MapContainer
-        style={{ height: "50vh", width: "100%" }}
+        style={{ height: "100vh", width: "100%" }}
         center={center}
         zoom={zoom}
         scrollWheelZoom={true}

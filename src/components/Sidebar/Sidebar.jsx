@@ -4,7 +4,7 @@ import "./Sidebar.scss";
 
 export default function Sidebar() {
   return (
-      <div>
+      <div id='sidebar'>
         <Datavis></Datavis>
       </div>
   );

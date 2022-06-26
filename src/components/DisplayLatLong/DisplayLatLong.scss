@@ -1,5 +1,14 @@
-.location--container{
-    height: 50px;
-    width: 50%;
-    background-color: transparent;
+.displaylatlong{
+    font-size: 0.8rem;
+    font-weight: 550;
+    color: white;
+    margin: 7px;
+
+    &--container{
+        position: absolute;
+        margin: 0px;
+        bottom: 0;
+        background-color: black;
+        z-index: 1000 !important;
+    }
 }
