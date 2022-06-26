@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { MapContainer} from "react-leaflet";
+import { MapContainer, TileLayer} from "react-leaflet";
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer";
 import { GoogleProvider } from 'leaflet-geosearch';
 import SearchControl from "../SearchControl/SearchControl";
@@ -26,6 +26,7 @@ export default function Map({ setMap }) {
         scrollWheelZoom={true}
         ref={setMap}>
         <ReactLeafletGoogleLayer type={'satellite'} />
+        <TileLayer url="https://storage.googleapis.com/tiles-data/tiles/{z}/{x}/{-y}.png"/>
         <SearchControl
           provider={provider}
           showMarker={false}
