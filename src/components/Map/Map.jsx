@@ -7,7 +7,7 @@ import "./Map.scss";
 import 'leaflet/dist/leaflet.css';
 
 const center = [51.505, -0.09]
-const zoom = 13
+const zoom = 7
 
 const provider = new GoogleProvider({
   params: {
@@ -26,7 +26,11 @@ export default function Map({ setMap }) {
         scrollWheelZoom={true}
         ref={setMap}>
         <ReactLeafletGoogleLayer type={'satellite'} />
-        <TileLayer url="https://storage.googleapis.com/tiles-data/tiles/{z}/{x}/{-y}.png"/>
+        <TileLayer
+        transparent={true}
+        maxZoom={12}
+        maxNativeZoom={6}
+        url="https://storage.googleapis.com/tiles-data/tiles/{z}/{x}/{-y}.png"/>
         <SearchControl
           provider={provider}
           showMarker={false}
