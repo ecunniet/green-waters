@@ -4,7 +4,7 @@ import "./Slider.scss";
 const Slider = ({ onChange, currentIndex, nbmax, type}) => {
   return (
     <ReactSlider
-      className="vertical-slider"
+      className={type === 'year' ? "vertical-slider" : "vertical-slider month" }
       markClassName={type === 'year' ? "example-mark" : "example-mark--month" }
       onChange={onChange}
       trackClassName="example-track"

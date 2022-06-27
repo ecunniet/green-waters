@@ -53,7 +53,7 @@
   }
   
   .example-thumb.active {
-    background-color: black;
+    background-color: transparent;
   }
   
   .example-track {
@@ -64,7 +64,7 @@
   }
   
   .example-track.example-track-0 {
-    background: black;
+    background: transparent;
   }
   .example-mark{
     position: relative;
@@ -81,3 +81,11 @@
     width: 6px;
   }
   
+  .vertical-slider {
+    height: 200px;
+    width: 42px;
+    margin: 0px 0px 16px 0px;
+  }
+  .month{
+    margin: 0px 0px 6px 0px !important;
+}

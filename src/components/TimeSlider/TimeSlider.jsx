@@ -21,7 +21,7 @@ export default function TimeSlider({ yearMap, setYearMap, monthMap, setMonthMap 
             <div className="container">
             <Step currentIndex={yearMap} type={stepsYear}/>
             </div>
-            <Slider onChange={handleYearChange} currentIndex={yearMap} nbmax={7} type='year'/>
+            <Slider onChange={handleYearChange}  currentIndex={yearMap} nbmax={7} type='year'/>
             <Slider onChange={handleMountChange} currentIndex={monthMap} nbmax={11} type='month'/>
             <div className="container">
             <Step currentIndex={monthMap} type={stepsMouth} />

@@ -6,9 +6,8 @@ const Step = ({ currentIndex, type }) => {
     <div className="steps-container">
       {type.map((step, index) => {
         let color = currentIndex === index ? "white" : "black";
-        console.log("color", color);
         return (
-          <div className="steps-item">
+          <div key={index.toString()} className="steps-item">
             <h3
               style={{
                 margin: 0,
