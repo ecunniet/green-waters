@@ -15,7 +15,8 @@ const provider = new GoogleProvider({
   },
 });
 
-export default function Map({ setMap }) {
+
+export default function Map({ setMap, setMoistLayer }) {
 
   const displayMap = useMemo(
     () => (
@@ -27,10 +28,11 @@ export default function Map({ setMap }) {
         ref={setMap}>
         <ReactLeafletGoogleLayer type={'satellite'} />
         <TileLayer
-        transparent={true}
-        maxZoom={12}
-        maxNativeZoom={6}
-        url="https://storage.googleapis.com/tiles-data/tiles/{z}/{x}/{-y}.png"/>
+          ref={setMoistLayer}
+          transparent={true}
+          maxZoom={12}
+          maxNativeZoom={6}
+          url="https://storage.googleapis.com/tiles-data/tiles/{z}/{x}/{-y}.png"/>
         <SearchControl
           provider={provider}
           showMarker={false}
@@ -40,7 +42,7 @@ export default function Map({ setMap }) {
         />
       </MapContainer>
     ),
-    [setMap],
+    [setMoistLayer, setMap],
   )
 
   return (
