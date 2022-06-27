@@ -1,0 +1,13 @@
+.steps-container {
+    background-color: blue;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.steps-item {
+    padding: 0px;
+    min-height: 10px;
+}

@@ -1,11 +1,11 @@
 import React from "react";
 import ReactSlider from "react-slider";
 import "./Slider.scss";
-const Slider = ({ onChange, currentIndex, nbmax}) => {
+const Slider = ({ onChange, currentIndex, nbmax, type}) => {
   return (
     <ReactSlider
       className="vertical-slider"
-      markClassName="example-mark"
+      markClassName={type === 'year' ? "example-mark" : "example-mark--month" }
       onChange={onChange}
       trackClassName="example-track"
       defaultValue={0}
@@ -15,7 +15,7 @@ const Slider = ({ onChange, currentIndex, nbmax}) => {
       marks
       renderMark={(props) => {
         if (props.key < currentIndex) {
-          props.className = "example-mark example-mark-completed";
+          props.className = (type === 'year' ? "example-mark example-mark-completed" : "example-mark example-mark-completed--month");
         } else if (props.key === currentIndex) {
           props.className = "example-mark example-mark-active";
         }
