@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from "react";
 import Map from "./components/Map/Map";
 import Sidebar from "./components/Sidebar/Sidebar";
+import TimeSlider from "./components/TimeSlider/TimeSlider";
 import DisplayLatLong from './components/DisplayLatLong/DisplayLatLong';
 import * as L from "leaflet";
 
@@ -12,6 +13,7 @@ function App() {
   const northWest = new L.LatLng(48.4, -4.3);
   const southEast = new L.LatLng(44, 11.6);
   const bounds = new L.LatLngBounds(northWest, southEast);
+  const [yearMap, setYearMap] = useState(0);
 
   useEffect(() => {
     if (map != null)
@@ -36,6 +38,7 @@ function App() {
       setChecked={setChecked}
       setMoistVis={setMoistVis}
       ></Sidebar>
+      <TimeSlider yearMap={yearMap} setYearMap={setYearMap}></TimeSlider>
     </div>
   );
 }
