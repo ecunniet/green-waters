@@ -14,6 +14,8 @@ function App() {
   const southEast = new L.LatLng(44, 11.6);
   const bounds = new L.LatLngBounds(northWest, southEast);
   const [yearMap, setYearMap] = useState(0);
+  const [monthMap, setMonthMap] = useState(0);
+
 
   useEffect(() => {
     if (map != null)
@@ -38,7 +40,7 @@ function App() {
       setChecked={setChecked}
       setMoistVis={setMoistVis}
       ></Sidebar>
-      <TimeSlider yearMap={yearMap} setYearMap={setYearMap}></TimeSlider>
+      <TimeSlider yearMap={yearMap} setYearMap={setYearMap} monthMap={monthMap} setMonthMap={setMonthMap}></TimeSlider>
     </div>
   );
 }
