@@ -1,4 +1,4 @@
-import React, {useMemo } from "react";
+import React, { useMemo } from "react";
 import { MapContainer, TileLayer} from "react-leaflet";
 import ReactLeafletGoogleLayer from "react-leaflet-google-layer";
 import { GoogleProvider } from 'leaflet-geosearch';
@@ -16,11 +16,12 @@ const provider = new GoogleProvider({
 });
 
 export default function Map({ setMap, setMoistLayer, bounds }) {
-
+  
   const displayMap = useMemo(
     () => (
       <MapContainer
-        style={{ height: "100vh", width: "80%" }}
+        id="divmap"
+        style={{ height: "100vh",  width: '80%'}}
         center={center}
         zoom={zoom}
         scrollWheelZoom={true}
@@ -29,10 +30,9 @@ export default function Map({ setMap, setMoistLayer, bounds }) {
         <TileLayer
           ref={setMoistLayer}
           transparent={true}
-          maxZoom={12}
-          maxNativeZoom={6}
+          maxNativeZoom={15}
           bounds={bounds}
-          url="https://storage.googleapis.com/tiles-data/tiles/{z}/{x}/{-y}.png"/>
+          url="https://storage.googleapis.com/tiles-data/moisture/2022/{z}/{x}/{-y}.png"/>
         <SearchControl
           provider={provider}
           showMarker={false}

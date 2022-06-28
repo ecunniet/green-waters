@@ -15,19 +15,23 @@ function App() {
   const bounds = new L.LatLngBounds(northWest, southEast);
   const [yearMap, setYearMap] = useState(0);
   const [monthMap, setMonthMap] = useState(0);
-
+  const [sidebarWidth, setSidebarWidth] = useState(20)
+  const [isResizing, setIsResizing] = useState(false)
 
   useEffect(() => {
     if (map != null)
     {
       if (checked){
-        console.log(moistVis)
         map.addLayer(moistLayer)
+        map.on('moveend', function() { 
+          const sw = map.getBounds().getSouthWest()
+          const ne = map.getBounds().getNorthEast()
+          console.log(sw.lat + ' et ' + sw.lng + ' et ' + ne.lat + ' et ' + ne.lng)})
       } else {
         map.removeLayer(moistLayer)
       }
     }
-  }, [map, checked, moistLayer, moistVis])
+  }, [map, checked, moistLayer, moistVis,sidebarWidth, isResizing])
 
   return (
     <div className="App">
@@ -39,6 +43,10 @@ function App() {
       checked={checked}
       setChecked={setChecked}
       setMoistVis={setMoistVis}
+      sidebarWidth={sidebarWidth}
+      setSidebarWidth={setSidebarWidth}
+      isResizing={isResizing}
+      setIsResizing={setIsResizing}
       ></Sidebar>
       <TimeSlider yearMap={yearMap} setYearMap={setYearMap} monthMap={monthMap} setMonthMap={setMonthMap}></TimeSlider>
     </div>

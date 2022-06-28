@@ -2,24 +2,31 @@ import React, { useCallback, useState, useEffect, useRef } from "react";
 import Datavis from "../Datavis/Datavis";
 import "./Sidebar.scss";
 
-export default function Sidebar({ checked, setChecked, setMoistVis}) {
+export default function Sidebar({ checked, setChecked, setMoistVis, sidebarWidth, setSidebarWidth, isResizing, setIsResizing}) {
   const sidebarRef = useRef(null)
-  const [isResizing, setIsResizing] = useState(false)
-  const [sidebarWidth, setSidebarWidth] = useState(268)
-  
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const startResizing = useCallback(() => {
+    setWindowWidth(window.innerWidth)
     setIsResizing(true)
-}, [])
+}, [setIsResizing])
 
   const stopResizing = useCallback(() => {
     setIsResizing(false)
-}, [])
+    if (sidebarWidth){
+      document.getElementById("divmap").style.width = (100-sidebarWidth)+'%';
+    }
+}, [setIsResizing, sidebarWidth])
 
 const resize = useCallback((mouseMoveEvent) => {
-    if (isResizing) {
-        setSidebarWidth(sidebarRef.current.getBoundingClientRect().right - mouseMoveEvent.clientX)
+  if (isResizing) {
+    setSidebarWidth((sidebarRef.current.getBoundingClientRect().right - mouseMoveEvent.clientX) * 100 / windowWidth)
+    if (sidebarWidth)
+    {
+      document.getElementById("divmap").style.width = (100-sidebarWidth)+'%';
     }
-}, [isResizing])
+  }
+}, [isResizing, windowWidth, sidebarWidth, setSidebarWidth])
 
 useEffect(() => {
     window.addEventListener("mousemove", resize)
@@ -33,7 +40,7 @@ useEffect(() => {
   return (
       <div id='sidebar'
       ref={sidebarRef}
-      style={{ width: sidebarWidth}}
+      style={{ width: sidebarWidth+'%'}}
       onMouseDown={e => e.preventDefault()}>
         <div className="grabbable"
         onMouseDown={startResizing}>
