@@ -10,9 +10,9 @@ function App() {
   const [checked, setChecked] = useState(false);
   const [moistVis, setMoistVis] = useState(null)
   const [moistLayer, setMoistLayer] = useState(null)
-  const northWest = new L.LatLng(48.4, -4.3);
-  const southEast = new L.LatLng(44, 11.6);
-  const bounds = new L.LatLngBounds(northWest, southEast);
+  const corner1 = new L.LatLng(54.9166782, -10.1763484,);
+  const corner2 = new L.LatLng(39.5003247, 12.9803438);
+  const bounds = new L.LatLngBounds(corner1, corner2);
   const [yearMap, setYearMap] = useState(0);
   const [monthMap, setMonthMap] = useState(0);
   const [sidebarWidth, setSidebarWidth] = useState(20)
@@ -21,6 +21,7 @@ function App() {
   useEffect(() => {
     if (map != null)
     {
+      console.log(moistLayer)
       if (checked){
         map.addLayer(moistLayer)
         map.on('moveend', function() { 

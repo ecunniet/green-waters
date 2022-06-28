@@ -32,6 +32,7 @@ export default function Map({ setMap, setMoistLayer, bounds }) {
           transparent={true}
           maxNativeZoom={15}
           bounds={bounds}
+          maxBounds={bounds}
           url="https://storage.googleapis.com/tiles-data/moisture/2022/{z}/{x}/{-y}.png"/>
         <SearchControl
           provider={provider}
