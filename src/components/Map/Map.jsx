@@ -15,25 +15,30 @@ const provider = new GoogleProvider({
   },
 });
 
-export default function Map({ setMap, setMoistLayer, bounds }) {
+export default function Map({ stepsYear, setMap, moistLayer, setMoistLayer, bounds }) {
   
   const displayMap = useMemo(
     () => (
       <MapContainer
-        id="divmap"
-        style={{ height: "100vh",  width: '80%'}}
-        center={center}
-        zoom={zoom}
-        scrollWheelZoom={true}
-        ref={setMap}>
+      id="divmap"
+      style={{ height: "100vh",  width: '80%'}}
+      center={center}
+      zoom={zoom}
+      scrollWheelZoom={true}
+      ref={setMap}>
         <ReactLeafletGoogleLayer type={'satellite'} />
-        <TileLayer
-          ref={setMoistLayer}
+        {stepsYear.map((year, index) => {
+        return (
+          <TileLayer
+          key={index}
+          ref={moistLayer[index]}
           transparent={true}
           maxNativeZoom={15}
           bounds={bounds}
           maxBounds={bounds}
-          url="https://storage.googleapis.com/tiles-data/moisture/2022/{z}/{x}/{-y}.png"/>
+          data-index={index}
+          url={"https://storage.googleapis.com/tiles-data/moisture/" + year + "/{z}/{x}/{-y}.png"}/>)
+        })}
         <SearchControl
           provider={provider}
           showMarker={false}
@@ -43,7 +48,7 @@ export default function Map({ setMap, setMoistLayer, bounds }) {
         />
       </MapContainer>
     ),
-    [setMoistLayer, setMap, bounds],
+    [setMap, bounds, stepsYear, moistLayer],
   )
 
   return (

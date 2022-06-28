@@ -4,7 +4,7 @@ import "./Sidebar.scss";
 
 export default function Sidebar({ checked, setChecked, setMoistVis, sidebarWidth, setSidebarWidth, isResizing, setIsResizing}) {
   const sidebarRef = useRef(null)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const startResizing = useCallback(() => {
     setWindowWidth(window.innerWidth)
@@ -12,11 +12,13 @@ export default function Sidebar({ checked, setChecked, setMoistVis, sidebarWidth
 }, [setIsResizing])
 
   const stopResizing = useCallback(() => {
-    setIsResizing(false)
-    if (sidebarWidth){
-      document.getElementById("divmap").style.width = (100-sidebarWidth)+'%';
+    if (isResizing){
+      setIsResizing(false)
+      if (sidebarWidth){
+        document.getElementById("divmap").style.width = (100-sidebarWidth)+'%';
+      }
     }
-}, [setIsResizing, sidebarWidth])
+}, [setIsResizing, sidebarWidth, isResizing])
 
 const resize = useCallback((mouseMoveEvent) => {
   if (isResizing) {
