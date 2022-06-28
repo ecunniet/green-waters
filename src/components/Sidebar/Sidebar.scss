@@ -1,9 +1,23 @@
 #sidebar{
     position: absolute;
+    display: flex;
+    flex-direction: row;
     height: 100vh;
-    width: 20%;
     z-index: 500;
     top: 0;
     right: 0;
     background-color: white;
+}
+.grabbable {
+    height: 100%;
+    min-height: 100%;
+    width: 3px;
+    background-color: black;
+
+    cursor: col-resize;
+}
+
+ /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+.grabbable:active {
+    cursor: col-resize;
 }
