@@ -6,7 +6,7 @@ export default function Charts({elementType, interactionMode, setIndex, activeDa
 
     const data = [
         {
-          label: 'Moisture Levels',
+          label: 'Moisture Levels (en pourcentage)',
           data: [{year: "2016", mean: 49.39933526754563}, {year: "2017", mean: 49.53384679965688}, {year: "2018", mean: 49.492528628412536}, {year: "2019", mean: 49.60676886414152}, {year: "2020", mean: 49.56324098897826}, {year: "2021", mean: 49.51404210779819}, {year: "2022", mean: 49.50463554913957}]
         },
       ]

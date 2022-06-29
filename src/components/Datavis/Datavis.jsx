@@ -22,8 +22,12 @@ export default function Datavis({ map,moistLayer,  stepsYear, stepsMonth, yearMa
   };
 
   return (
-    <div>
-      <h1>Informations :</h1>
+    <div className="datavis-bigger--container">
+      <div className="title--container">
+      <h1>Informations</h1>
+      <h2>{stepsMonth[monthMap]} {stepsYear[yearMap]}</h2>
+      </div>
+      <div className="checkbox--container">
       <label>
         <input
         type="checkbox"
@@ -31,13 +35,11 @@ export default function Datavis({ map,moistLayer,  stepsYear, stepsMonth, yearMa
         checked={checked}
         onChange={handleChange}
         />
-        Taux de moisture
+        Carte avec les taux de Soil Moisture
       </label>
-      <p>this is {checked ? 'true': 'false'}</p>
-      <p>Year : {stepsYear[yearMap]}</p>
-      <p>Month : {stepsMonth[monthMap]}</p>
+      </div>
+      <h4>Moyenne des taux de Soil Moisture sur la zone affichée à gauche sur 7 ans.</h4>
       <div id="charts--container">
-      {JSON.stringify({ activeSeriesIndex, activeDatumIndex }, null, 2)}
         <MyCharts
         elementType="line"
         setIndex={setIndex}

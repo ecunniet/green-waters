@@ -21,7 +21,7 @@ export default function Map({ stepsYear, setMap, moistLayer, setMoistLayer, boun
     () => (
       <MapContainer
       id="divmap"
-      style={{ height: "100vh",  width: '80%'}}
+      style={{ height: "100vh", minHeight:'440px',  width: '80%', maxWidth: 'calc(100% - 400px)'}}
       center={center}
       zoom={zoom}
       scrollWheelZoom={true}
