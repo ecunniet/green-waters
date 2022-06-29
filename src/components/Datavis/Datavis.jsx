@@ -61,7 +61,7 @@ export default function Datavis({ map,moistLayer,  stepsYear, stepsMonth, yearMa
     <div className="datavis-bigger--container">
       <div className="title--container">
       <h1>Informations</h1>
-      <h2>{stepsMonth[monthMap]} {stepsYear[yearMap]}</h2>
+      <h2>{stepsYear[yearMap]}</h2>
       </div>
       <div className="checkbox--container">
       <label>
