@@ -17,9 +17,9 @@ export default function TimeSlider({map,checked, moistLayer, stepsYear, stepsMon
         }
     };
     
-    const handleMonthChange = (index) => {
-        setMonthMap(index);
-    };
+    // const handleMonthChange = (index) => {
+    //     setMonthMap(index);
+    // };
 
     return (
         <div className="timeline--container">
@@ -27,10 +27,10 @@ export default function TimeSlider({map,checked, moistLayer, stepsYear, stepsMon
             <Step currentIndex={yearMap} type={stepsYear}/>
             </div>
             <Slider onChange={handleYearChange}  currentIndex={yearMap} nbmax={6} type='year'/>
-            <Slider onChange={handleMonthChange} currentIndex={monthMap} nbmax={11} type='month'/>
+            {/* <Slider onChange={handleMonthChange} currentIndex={monthMap} nbmax={11} type='month'/>
             <div className="container">
             <Step currentIndex={monthMap} type={stepsMonth} />
-            </div>
+            </div> */}
         </div>
     );
   }

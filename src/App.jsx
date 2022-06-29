@@ -20,7 +20,7 @@ function App() {
   const [monthMap, setMonthMap] = useState(0);
   const [sidebarWidth, setSidebarWidth] = useState(20)
   const [isResizing, setIsResizing] = useState(false)
-
+  
   useEffect(() => {
     if (map != null)
     {
@@ -30,15 +30,15 @@ function App() {
           .fill()
           .map((_, i) => moistLayer[i] || createRef())
         );
-      } else if (checked){
-        console.log(moistLayer[yearMap].current)
-        map.addLayer(moistLayer[yearMap].current)
-        // si c'est checked ça doit redonner les dimensions de la map
-        map.on('moveend', function() { 
-          const sw = map.getBounds().getSouthWest()
-          const ne = map.getBounds().getNorthEast()
-          console.log(sw.lat + ' et ' + sw.lng + ' et ' + ne.lat + ' et ' + ne.lng)})
-      } else if (moistLayer[0] !== null){
+      // } else if (checked){
+      //   // console.log(moistLayer[yearMap].current)
+      //   // map.addLayer(moistLayer[yearMap].current)
+      //   // si c'est checked ça doit redonner les dimensions de la map
+      //   map.on('moveend', function() { 
+      //     const sw = map.getBounds().getSouthWest()
+      //     const ne = map.getBounds().getNorthEast()
+      //     console.log(sw.lat + ' et ' + sw.lng + ' et ' + ne.lat + ' et ' + ne.lng)})
+      } else if (moistLayer[0] !== null && checked === false){
           if (moistLayer[0].current !== null){
             if (isInitialised === false){
               // pas de trigger pour l'initialisation
@@ -51,7 +51,7 @@ function App() {
         } 
       }
     }
-  }, [map, checked, moistLayer, moistVis,sidebarWidth, isResizing, yearMap,isInitialised])
+  }, [map, checked, moistLayer, yearMap,isInitialised])
 
   return (
     <div className="App">

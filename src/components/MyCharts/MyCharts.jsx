@@ -2,15 +2,20 @@ import React, {useMemo} from "react";
 import { Chart } from 'react-charts'
  
 
-export default function Charts({elementType, interactionMode, setIndex, activeDatumIndex, activeSeriesIndex, checked}){
+export default function Charts({error, isLoaded, items, elementType, interactionMode, setIndex, activeDatumIndex, activeSeriesIndex}){
 
-    const data = [
-        {
-          label: 'Moisture Levels (en pourcentage)',
-          data: [{year: "2016", mean: 49.39933526754563}, {year: "2017", mean: 49.53384679965688}, {year: "2018", mean: 49.492528628412536}, {year: "2019", mean: 49.60676886414152}, {year: "2020", mean: 49.56324098897826}, {year: "2021", mean: 49.51404210779819}, {year: "2022", mean: 49.50463554913957}]
-        },
-      ]
-
+  const olddata = [
+    {
+      label: 'Moisture Levels (en pourcentage)',
+      data: [{year: "2016", mean: 145151}, {year: "2017", mean: 49.53384679965688}, {year: "2018", mean: 49.492528628412536}, {year: "2019", mean: 49.60676886414152}, {year: "2020", mean: 49.56324098897826}, {year: "2021", mean: 49.51404210779819}, {year: "2022", mean: 49.50463554913957}]
+    },
+  ]
+  const data = [
+    {
+      label: 'Moisture Levels (en pourcentage)',
+      data:items
+    },
+  ]
       const primaryAxis = useMemo(
         () => ({
           getValue: (datum) => datum.year,
@@ -26,7 +31,14 @@ export default function Charts({elementType, interactionMode, setIndex, activeDa
         ],
         [elementType]
       )
-
+    
+      if (error) {
+        return <div>Erreur : {error.message}</div>;
+      } else if (!isLoaded) {
+        return <div>Chargement...</div>;
+      } else {
+        console.log('olddata' + JSON.stringify(olddata))
+        console.log('data' + JSON.stringify(data))
     return(
           <Chart
            options={{
@@ -139,5 +151,6 @@ export default function Charts({elementType, interactionMode, setIndex, activeDa
             ),
           }}
      />
-    )
+    );
+  }
 }
