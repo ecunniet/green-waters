@@ -26,7 +26,7 @@ export default function TimeSlider({map,checked, moistLayer, stepsYear, stepsMon
             <div className="container">
             <Step currentIndex={yearMap} type={stepsYear}/>
             </div>
-            <Slider onChange={handleYearChange}  currentIndex={yearMap} nbmax={6} type='year'/>
+            <Slider onChange={handleYearChange}  currentIndex={yearMap} nbmax={5} type='year'/>
             {/* <Slider onChange={handleMonthChange} currentIndex={monthMap} nbmax={11} type='month'/>
             <div className="container">
             <Step currentIndex={monthMap} type={stepsMonth} />

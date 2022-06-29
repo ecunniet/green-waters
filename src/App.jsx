@@ -6,7 +6,7 @@ import DisplayLatLong from './components/DisplayLatLong/DisplayLatLong';
 import * as L from "leaflet";
 
 function App() {
-  const stepsYear = ["2022", "2021", "2020", "2019", "2018", "2017", "2016"];
+  const stepsYear = ["2022", "2021", "2020", "2019", "2018", "2017"];
   const stepsMonth = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
   const [map, setMap] = useState(null);
   const [checked, setChecked] = useState(false);
@@ -24,20 +24,12 @@ function App() {
   useEffect(() => {
     if (map != null)
     {
-      if (moistLayer.length < 7){
+      if (moistLayer.length < 6){
         setMoistLayer((moistLayer) =>
-          Array(7)
+          Array(6)
           .fill()
           .map((_, i) => moistLayer[i] || createRef())
         );
-      // } else if (checked){
-      //   // console.log(moistLayer[yearMap].current)
-      //   // map.addLayer(moistLayer[yearMap].current)
-      //   // si c'est checked ça doit redonner les dimensions de la map
-      //   map.on('moveend', function() { 
-      //     const sw = map.getBounds().getSouthWest()
-      //     const ne = map.getBounds().getNorthEast()
-      //     console.log(sw.lat + ' et ' + sw.lng + ' et ' + ne.lat + ' et ' + ne.lng)})
       } else if (moistLayer[0] !== null && checked === false){
           if (moistLayer[0].current !== null){
             if (isInitialised === false){
