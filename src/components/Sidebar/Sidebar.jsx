@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect, useRef } from "react";
 import Datavis from "../Datavis/Datavis";
 import "./Sidebar.scss";
 
-export default function Sidebar({ checked, setChecked, setMoistVis, sidebarWidth, setSidebarWidth, isResizing, setIsResizing}) {
+export default function Sidebar({ map, moistLayer, stepsYear, stepsMonth, yearMap, monthMap, checked, setChecked, setMoistVis, sidebarWidth, setSidebarWidth, isResizing, setIsResizing}) {
   const sidebarRef = useRef(null)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -48,6 +48,12 @@ useEffect(() => {
         onMouseDown={startResizing}>
         </div>
         <Datavis
+        map={map}
+        moistLayer={moistLayer}
+        stepsYear={stepsYear}
+        stepsMonth={stepsMonth}
+        yearMap={yearMap}
+        monthMap={monthMap}
         checked={checked}
         setChecked={setChecked}
         setMoistVis={setMoistVis}

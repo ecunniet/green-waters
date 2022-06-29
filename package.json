@@ -10,6 +10,7 @@
     "leaflet-geosearch": "^3.6.1",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
+    "react-charts": "^3.0.0-beta.36",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.0.1",
     "react-leaflet-google-layer": "^2.0.6",
