@@ -6,102 +6,9 @@ export default function Charts({elementType, interactionMode, setIndex, activeDa
 
     const data = [
         {
-          label: 'Series 1',
-          data: [
-            {
-              year: "2016",
-              mean: 49.39933526754563
-            },
-            {
-              year: "2017",
-              mean: 49.53384679965688
-            },
-            {
-              year: "2018",
-              mean: 52.492528628412536
-            },
-            {
-              year: "2019",
-              mean: 43.60676886414152
-            },
-            {
-              year: "2020",
-              mean: 17.56324098897826
-            },
-            {
-              year: "2021",
-              mean: 50.51404210779819
-            },
-            {
-              year: "2022",
-              mean: 49.50463554913957
-            }
-          ]
-      },{
-        label: 'Series 2',
-        data: [
-          {
-            year: "2016",
-            mean: 23.39933526754563
-          },
-          {
-            year: "2017",
-            mean: 30.53384679965688
-          },
-          {
-            year: "2018",
-            mean: 49.492528628412536
-          },
-          {
-            year: "2019",
-            mean: 51.60676886414152
-          },
-          {
-            year: "2020",
-            mean: 48.56324098897826
-          },
-          {
-            year: "2021",
-            mean: 6.51404210779819
-          },
-          {
-            year: "2022",
-            mean: 36.50463554913957
-          }
-        ]
-    },{
-      label: 'Series 3',
-      data: [
-        {
-          year: "2016",
-          mean: 49.39933526754563
+          label: 'Moisture Levels',
+          data: [{year: "2016", mean: 49.39933526754563}, {year: "2017", mean: 49.53384679965688}, {year: "2018", mean: 49.492528628412536}, {year: "2019", mean: 49.60676886414152}, {year: "2020", mean: 49.56324098897826}, {year: "2021", mean: 49.51404210779819}, {year: "2022", mean: 49.50463554913957}]
         },
-        {
-          year: "2017",
-          mean: 49.53384679965688
-        },
-        {
-          year: "2018",
-          mean: 49.492528628412536
-        },
-        {
-          year: "2019",
-          mean: 4.60676886414152
-        },
-        {
-          year: "2020",
-          mean: 49.56324098897826
-        },
-        {
-          year: "2021",
-          mean: 49.51404210779819
-        },
-        {
-          year: "2022",
-          mean: 49.50463554913957
-        }
-      ]
-  }
       ]
 
       const primaryAxis = useMemo(
@@ -182,7 +89,7 @@ export default function Charts({elementType, interactionMode, setIndex, activeDa
                   }),
             getSeriesStyle: (series) => {
               return {
-                color: `url(#${series.index % 4})`,
+                color: `url(#${series.index % 7})`,
                 opacity:
                   activeSeriesIndex > -1
                     ? series.index === activeSeriesIndex
@@ -214,6 +121,19 @@ export default function Charts({elementType, interactionMode, setIndex, activeDa
                 <linearGradient id="3" x1="0" x2="0" y1="1" y2="0">
                   <stop offset="0%" stopColor="#ffb302" />
                   <stop offset="100%" stopColor="#ead700" />
+                </linearGradient>
+                 {/* chosen by me */}
+                <linearGradient id="4" x1="0" x2="0" y1="1" y2="0">
+                  <stop offset="0%" stopColor="#d21c4e" />
+                  <stop offset="100%" stopColor="#ffdb17" />
+                </linearGradient>
+                 <linearGradient id="5" x1="0" x2="0" y1="1" y2="0">
+                  <stop offset="0%" stopColor="#fc4217" />
+                  <stop offset="100%" stopColor="#c200fb" />
+                </linearGradient>
+                <linearGradient id="6" x1="0" x2="0" y1="1" y2="0">
+                  <stop offset="0%" stopColor="#00ffa6" />
+                  <stop offset="100%" stopColor="#0019ff" />
                 </linearGradient>
               </defs>
             ),
